@@ -1,0 +1,125 @@
+@import "colors.css";
+
+window#waybar {
+  min-height: 18px; /* set waybar's height to 18px */
+  font-size: 18px; /* set only the font size to be bigger, which in turn will adjust the height of other elements */
+}
+
+* {
+    all: unset;
+    font-family: "Google Sans Flex","JetBrainsMono Nerd Font", "Symbols Nerd Font", "monospace" ;
+}
+
+.modules-center {
+    background-color: @gr1;
+    padding: 7px 20px;
+    border-radius: 15px;
+}
+
+
+#clock {
+    font-weight: 600;
+    color: @oil1;
+}
+
+#workspaces {
+    background-color: @gr2;
+    padding: 2px 4px;
+    margin: 2px 0;
+    border-radius: 10px;
+}
+
+#workspaces button {
+    padding: 2px 4px;
+    margin: 0 2px;
+    transition:all 300ms ease-in-out;
+    min-width: 7px;
+    color: @oil1;
+}
+
+#workspaces button.active {
+    background-color: @oil1;
+    color: @gr1;
+    padding: 1px 10px;
+    min-width: 1.5rem;
+    border-radius: 10px;
+    transition: none;
+
+}
+
+#workspaces button.empty {
+    color: @oil2;
+}
+
+#battery {
+    color: @oil1;
+    font-weight: 600;
+}
+
+#network {
+    color: @oil1;
+    font-weight: 600;
+}
+
+
+#pulseaudio {
+    color: @oil1;
+    font-weight: 600;
+}
+
+#custom-prayer {
+    background-color: @gr2;  
+    color: @oil1;
+    padding: 4px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+#custom-prayer.prayer-warning {
+    background-color: @oil1;
+    color: @gr1;
+    animation: prayer-pulse 1s ease-in-out infinite alternate;
+}
+
+#custom-prayer.prayer-soon {
+    background-color: @red;
+    color: @gr1;
+    animation: prayer-pulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes prayer-pulse {
+    from { opacity: 1; }
+    to   { opacity: 0.5; }
+}
+
+#custom-mic {
+    padding: 12px 12px;
+    border-radius: 10px;
+}
+
+#custom-mic.active {
+    background-color: @gr2;
+    color: @oil1;
+}
+
+#custom-mic.muted {
+    background-color: @yellow;
+    color: @oil2;
+}
+
+
+#backlight {
+    padding: 12px 12px;
+    border-radius: 10px;
+    background-color: @gr2;
+    color: @oil1;
+}
+
+
+
+#tray {
+    color: @oil1;
+}
+
+
+
