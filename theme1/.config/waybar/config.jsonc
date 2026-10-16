@@ -1,0 +1,112 @@
+{
+   "spacing": 20,
+   "margin-top": 15,
+    "modules-center": [
+        "clock",
+        "backlight",
+        "hyprland/workspaces",
+        "custom/mic",
+        "pulseaudio",
+        "network",
+        "battery",
+        "custom/prayer"
+    ],
+    "sway/window": {
+        "max-length": 50
+    },
+"clock": {
+	"interval": 60,
+	"tooltip": true,
+	"format": "{:%a %d %b %I:%M %p}",
+	"tooltip-format": "{:%Y-%m-%d}",
+},
+
+"backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-",
+},
+
+"hyprland/workspaces": {
+	"format": "{name}",
+	"format-icons": {
+		"1": "1",
+		"2": "2",
+		"3": "3",
+		"4": "4",
+		"5": "5",
+		"active": "",
+		"default": ""
+	},
+       "persistent-workspaces": {
+             "*": 5 // 5 workspaces by default on every monitor
+       }
+},
+
+"pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "phone-muted": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+},
+
+"network": {
+    "interface": "wlan0",
+    "format": "{ifname}",
+    "format-wifi": "{signalStrength}% ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+},
+
+"custom/prayer": {
+    "exec": "~/.config/waybar/scripts/prayer.sh",
+    "interval": 30,
+    "return-type": "json",
+},
+
+"custom/mic": {
+    "exec": "~/.config/waybar/scripts/mic-toggle.sh status",
+    "interval": 2,
+    "return-type": "json",
+    "on-click": "~/.config/waybar/scripts/mic-toggle.sh toggle",
+    "tooltip": true
+},
+
+
+"tray": {
+    "icon-size": 25,
+    "icon-margin": 5
+},
+
+
+"battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "format": "{capacity}% {icon}",
+    "format-icons": {
+        "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+    }
+}
+}
+
+
